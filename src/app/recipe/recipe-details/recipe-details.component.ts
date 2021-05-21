@@ -14,8 +14,27 @@ export class RecipeDetailsComponent implements OnInit {
 constructor(private applicationServices: ApplicationServices) { 
 
  this.applicationServices.recipeItemClicked.subscribe((recipe:Recipe)=> {
- this.recipeReceived.push(recipe);
- this.userSelectedRecipe = true; 
+ 
+ 
+
+  const value = this.recipeReceived.find(x=> x.id === recipe.id);
+  if(this.recipeReceived.length > 0 &&  value !== undefined){
+    alert("You have already added this item, please select a different") 
+     recipe = {
+       id: 0,
+       name : "",
+       content : "",
+       dropdown: false,
+      image: ""
+     }
+    return null; 
+  }else{
+    this.recipeReceived.push(recipe);
+    this.userSelectedRecipe = true; 
+    console.log(this.recipeReceived.length)
+  }
+  return null; 
+ 
  });
 }
 
