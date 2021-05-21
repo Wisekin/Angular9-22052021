@@ -17,12 +17,12 @@
             {{item.content}}
         </div>
 
-        <div class="dropdown mt-1 " (click)="dropDownToggle()">
+        <div class="dropdown mt-1 " (click)="dropDownToggle(item)">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Manage Recipe
             </button>
-            <div class="dropdown-menu show" aria-labelledby="dropdownMenuButton" *ngIf="!openDropDown">
+            <div class="dropdown-menu show" aria-labelledby="dropdownMenuButton" *ngIf="!item.dropdown">
                 <a class="dropdown-item" href="#">Edit</a>
                 <div role="separator" class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Delete</a>

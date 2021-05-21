@@ -1,11 +1,11 @@
 <div class="row">
   <div class="mt-4 col-12">
     <div class="">
-      <div class="">
+      <div class="mb-2" *ngFor="let item of recipe"   (click)="onRecipeItemClicked(item)">
         <a [routerLink]="['recipe-details']" routerLinkActive="router-link-active"  class="list-group-item 
         cleafix d-flex justify-content-between"
       
-         *ngFor="let item of recipe"   (click)="onRecipeItemClicked(item)">
+         >
            <div class="nameAndDescriptionDiv">
                <h4 class="list-group-item-heading">{{item.name}}</h4>
                <p class="list-group-item-text">{{item.content}}</p>

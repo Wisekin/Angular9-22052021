@@ -11,7 +11,6 @@ import { Recipe } from 'src/app/Shared/recipe.model';
 export class RecipeDetailsComponent implements OnInit {
  userSelectedRecipe = false;
  recipeReceived: Recipe[] = [];
- openDropDown: boolean = true;
 constructor(private applicationServices: ApplicationServices) { 
 
  this.applicationServices.recipeItemClicked.subscribe((recipe:Recipe)=> {
@@ -22,8 +21,9 @@ constructor(private applicationServices: ApplicationServices) {
 
   ngOnInit(): void {
   }
-  dropDownToggle( ){
-    this.openDropDown = !this.openDropDown;
+  dropDownToggle(item: Recipe ){
+     const returnedItem = this.applicationServices.getRecipes(item.id)
+       returnedItem!.dropdown = !returnedItem?.dropdown;
     
   }
     
