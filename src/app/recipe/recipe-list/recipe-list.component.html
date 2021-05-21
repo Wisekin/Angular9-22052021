@@ -1,43 +1,6 @@
-<!-- <div class="album py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="name col-12">
-                Fruit and Vegetables
-            </div>
-                <div class="description col-8">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur natus libero officiis fugit. Saepe tempore alias mollitia optio, rem facilis
-                     quibusdam recusandae laudantium perferendis? Ut voluptates nihil soluta labore dolore.
-                </div>
-
-                <div class="image col-4">
-                    <img src="https://thumbs.dreamstime.com/b/fruits-vegetables-15528773.jpg" style="height: 100px; width: 100px;">
-            </div>
-        </div>  
-       
-      
-      </div>
-      
-    </div> -->
 
     <div class="container mt-5">
-        <button type="button" class="btn btn-success" (click)="addNewRecipe()">Add recipe</button>
+        <button type="button" class="btn btn-success">Add recipe</button>
         <hr>
-
-        <div class="row" *ngFor="let item of recipe">
-
-            <div class="col-12">
-                <a href="#" class="list-group-item  cleafix d-flex justify-content-between">
-                    <div class="nameAndDescriptionDiv">
-                        <h4 class="list-group-item-heading">{{item.name}}</h4>
-                        <p class="list-group-item-text">{{item.description}}</p>
-                    </div>
-                        <span class="">
-                            <img src="{{item.image}}" 
-                        style="height:80px" class="img-responsive">
-                        </span>
-          
-                </a>
-            </div>
-      
-        </div>   
+        <app-recipe-item></app-recipe-item>
     </div>

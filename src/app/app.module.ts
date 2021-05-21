@@ -7,9 +7,34 @@ import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { RecipeListComponent } from './recipe/recipe-list/recipe-list.component';
-import { RecipeItemComponent } from './recipe/recipe-item/recipe-item.component';
+import { RecipeItemComponent } from './recipe/recipe-list/recipe-item/recipe-item.component';
 import { RecipeDetailsComponent } from './recipe/recipe-details/recipe-details.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { HeaderComponent } from './header/header.component';
+import { ApplicationServices } from './services/application.services';
+import {DropdownDirective } from './directive/dropdown.directive';
+import {Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = [
+  {path: "shopping-list", component: ShoppingListComponent},
+  
+  {path: "recipe", component: RecipeComponent,
+  
+    children:[
+    {path: "recipe-list", component: RecipeListComponent, children: [
+     {path: "recipe-item", component: RecipeItemComponent},
+    ]},
+  {path: "recipe-details", component: RecipeDetailsComponent}
+  ]},
+  
+  {path: "home",  component: HomeComponent},
+  {path: "**",  redirectTo: "home"}
+
+
+
+
+]
 
 @NgModule({
   declarations: [	
@@ -19,14 +44,19 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
       RecipeListComponent,
       RecipeItemComponent,
       RecipeDetailsComponent,
-      ShoppingListComponent
+      ShoppingListComponent,
+      HeaderComponent,
+      DropdownDirective,
+      HomeComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
+  
   ],
-  providers: [],
+  providers: [ ApplicationServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

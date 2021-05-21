@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { DropdownDirective } from './../../directive/dropdown.directive';
+import { ApplicationServices } from './../../services/application.services';
+import { Component,   OnInit } from '@angular/core';
+import { Recipe } from 'src/app/Shared/recipe.model';
 
 @Component({
   selector: 'app-recipe-details',
@@ -6,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-details.component.css']
 })
 export class RecipeDetailsComponent implements OnInit {
+ userSelectedRecipe = false;
+ recipeReceived: Recipe[] = [];
+ openDropDown: boolean = true;
+constructor(private applicationServices: ApplicationServices) { 
 
-  constructor() { }
+ this.applicationServices.recipeItemClicked.subscribe((recipe:Recipe)=> {
+ this.recipeReceived.push(recipe);
+ this.userSelectedRecipe = true; 
+ });
+}
 
   ngOnInit(): void {
   }
-
+  dropDownToggle( ){
+    this.openDropDown = !this.openDropDown;
+    
+  }
+    
+  
 }

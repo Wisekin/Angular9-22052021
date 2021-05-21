@@ -7,13 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fld5';
-   recipeItem = [{type: "server", name: "test recipe", content: "dynamic content form database database dynamic content form database dynamic content form database"},
-   {type: "server2", name: "test recipe2", content: "dynamic content form database2 dynamic content form database dynamic content form database"},
-   
-  ]
+  displayClickedTab = "";
+  recipeItem = [{type: "NEW RECIPES", name: "YOUR NEW RECIPES", content: "Your new recipes will display here"},]
 
-  
-onDataAdded(event:any){
-  this.recipeItem.push({ type: "static", name: event.inputName, content: event.inputContent});
-  }
+  constructor() { }
+ 
+
+  onDataAdded(event:any){
+    this.recipeItem.push({ type: "static", name: event.inputName, content: event.inputContent});
+    }
+
+    showSelected(event: any){
+      this.displayClickedTab = event
+    }
 }
