@@ -15,6 +15,7 @@ import { ApplicationServices } from './services/application.services';
 import {DropdownDirective } from './directive/dropdown.directive';
 import {Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ShoppingHistoryComponent } from './shopping-history/shopping-history.component';
 
 const routes: Routes = [
   {path: "shopping-list", component: ShoppingListComponent},
@@ -47,7 +48,8 @@ const routes: Routes = [
       ShoppingListComponent,
       HeaderComponent,
       DropdownDirective,
-      HomeComponent
+      HomeComponent,
+      ShoppingHistoryComponent
    ],
   imports: [
     BrowserModule,
